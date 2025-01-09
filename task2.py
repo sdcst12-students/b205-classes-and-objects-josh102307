@@ -13,15 +13,26 @@ class Calc:
     rate = 0
     nPeriods = 0
 
-    def __init__(self):
-        #more input parameters needed
+    def __init__(self, P, r, n):
+        self.principal = P
+        self.rate = r / 100  
+        self.nPeriods = n 
         return
 
     def interest(self,t):
-        return 
+        a = self.principal * (1 + self.rate / self.nPeriods)**(self.nPeriods*t)
+        x = a - self.principal
+        x = round(x,2)
+        print(x)
+        return x
+        
     
     def amount(self,t):
-        return
+        answer = self.principal * (1 + self.rate / self.nPeriods) ** (self.nPeriods * t)
+        answer = round(answer,2)
+        print(answer)
+        return answer
+    
 
 a = Calc(P=1000,r=4,n=2)
 assert a.interest(3) == 126.16
